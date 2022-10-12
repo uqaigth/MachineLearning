@@ -1,8 +1,8 @@
-package com.uqaigth.dl.core.layer
+package com.uqaigth.ml.core.layer
 
-import com.uqaigth.dl.core.Layer
-import com.uqaigth.dl.core.Node
-import com.uqaigth.dl.core.node.OutputLayerNode
+import com.uqaigth.ml.core.Layer
+import com.uqaigth.ml.core.Node
+import com.uqaigth.ml.core.node.OutputLayerNode
 
 class OutputLayer(
     override val layerIndex: Int,

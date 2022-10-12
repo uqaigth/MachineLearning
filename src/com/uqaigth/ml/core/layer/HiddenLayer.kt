@@ -1,9 +1,9 @@
-package com.uqaigth.dl.core.layer
+package com.uqaigth.ml.core.layer
 
-import com.uqaigth.dl.core.Layer
-import com.uqaigth.dl.core.Node
-import com.uqaigth.dl.core.node.ConstNode
-import com.uqaigth.dl.core.node.HiddenLayerNode
+import com.uqaigth.ml.core.Layer
+import com.uqaigth.ml.core.Node
+import com.uqaigth.ml.core.node.ConstNode
+import com.uqaigth.ml.core.node.HiddenLayerNode
 
 class HiddenLayer(
     override val layerIndex: Int,

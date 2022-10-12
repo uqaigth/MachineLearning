@@ -1,8 +1,8 @@
-package com.uqaigth.dl.core.node
+package com.uqaigth.ml.core.node
 
-import com.uqaigth.dl.core.Connection
-import com.uqaigth.dl.core.Node
-import com.uqaigth.dl.exception.NoSuchStreamConnection
+import com.uqaigth.ml.core.Connection
+import com.uqaigth.ml.core.Node
+import com.uqaigth.ml.exception.NoSuchStreamConnection
 
 class ConstNode(override val layerIndex: Int, override val nodeIndex: Int) : Node {
     override var output = 1.0

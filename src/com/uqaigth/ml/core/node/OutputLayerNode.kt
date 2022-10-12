@@ -1,9 +1,10 @@
-package com.uqaigth.dl.core.node
+package com.uqaigth.ml.core.node
 
-import com.uqaigth.dl.core.Connection
-import com.uqaigth.dl.core.Node
+import com.uqaigth.ml.core.Connection
+import com.uqaigth.ml.core.Node
+import com.uqaigth.ml.exception.NoSuchStreamConnection
 
-class HiddenLayerNode(
+class OutputLayerNode(
     override val layerIndex: Int,
     override val nodeIndex: Int,
     private val activator: (Double) -> Double
@@ -11,15 +12,15 @@ class HiddenLayerNode(
     override var output = 0.0
     override var delta = 0.0
 
-    override val downstream: MutableList<Connection> = mutableListOf()
     override val upstream: MutableList<Connection> = mutableListOf()
-
-    override fun addDownstreamConnection(connection: Connection) {
-        downstream.add(connection)
-    }
+    override val downstream: List<Connection> = listOf()
 
     override fun addUpstreamConnection(connection: Connection) {
         upstream.add(connection)
+    }
+
+    override fun addDownstreamConnection(connection: Connection) {
+        throw NoSuchStreamConnection("OutputLayerNode doesn't has DownStreamConnection.")
     }
 
     override fun calcOutput() {
@@ -30,7 +31,6 @@ class HiddenLayerNode(
     }
 
     override fun calcDelta(label: Double) {
-        val downstreamDelta = downstream.map { it.weight * it.downstreamNode.delta }.sum()
-        delta = output * (1 - output) * downstreamDelta
+        delta = output * (1 - output) * (label - output)
     }
 }

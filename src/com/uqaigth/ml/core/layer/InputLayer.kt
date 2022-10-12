@@ -1,8 +1,8 @@
-package com.uqaigth.dl.core.layer
+package com.uqaigth.ml.core.layer
 
-import com.uqaigth.dl.core.Layer
-import com.uqaigth.dl.core.Node
-import com.uqaigth.dl.core.node.InputLayerNode
+import com.uqaigth.ml.core.Layer
+import com.uqaigth.ml.core.Node
+import com.uqaigth.ml.core.node.InputLayerNode
 import java.lang.Exception
 
 class InputLayer(override val nodeCount: Int) : Layer {

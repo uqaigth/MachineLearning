@@ -1,7 +1,7 @@
-package com.uqaigth.dl.core
+package com.uqaigth.ml.core
 
-import com.uqaigth.dl.core.layer.InputLayer
-import com.uqaigth.dl.core.node.ConstNode
+import com.uqaigth.ml.core.layer.InputLayer
+import com.uqaigth.ml.core.node.ConstNode
 
 class Network(private val layers: List<Layer>) {
 

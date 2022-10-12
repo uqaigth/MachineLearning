@@ -1,9 +1,9 @@
 package com.uqaigth
 
-import com.uqaigth.dl.core.Network
-import com.uqaigth.dl.core.layer.HiddenLayer
-import com.uqaigth.dl.core.layer.InputLayer
-import com.uqaigth.dl.core.layer.OutputLayer
+import com.uqaigth.ml.core.Network
+import com.uqaigth.ml.core.layer.HiddenLayer
+import com.uqaigth.ml.core.layer.InputLayer
+import com.uqaigth.ml.core.layer.OutputLayer
 import com.uqaigth.sensor.Sensor
 
 class Main {

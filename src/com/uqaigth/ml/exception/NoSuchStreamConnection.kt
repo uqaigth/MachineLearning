@@ -1,4 +1,4 @@
-package com.uqaigth.dl.exception
+package com.uqaigth.ml.exception
 
 import java.lang.RuntimeException
 
