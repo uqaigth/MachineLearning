@@ -1,4 +1,4 @@
-package com.uqaigth.ml.core
+package com.uqaigth.network.core
 
 interface Layer {
     val layerIndex: Int

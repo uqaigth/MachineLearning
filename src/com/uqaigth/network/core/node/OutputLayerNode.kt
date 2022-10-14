@@ -1,8 +1,8 @@
-package com.uqaigth.ml.core.node
+package com.uqaigth.network.core.node
 
-import com.uqaigth.ml.core.Connection
-import com.uqaigth.ml.core.Node
-import com.uqaigth.ml.exception.NoSuchStreamConnection
+import com.uqaigth.network.core.Connection
+import com.uqaigth.network.core.Node
+import com.uqaigth.network.exception.NoSuchStreamConnection
 
 class OutputLayerNode(
     override val layerIndex: Int,
@@ -25,7 +25,7 @@ class OutputLayerNode(
 
     override fun calcOutput() {
         // (w1 * x1) + (w2 * x2) + ... + (wi * xi) 上层的输出作为本层的输入
-        val upstreamOutput = upstream.map { it.weight * it.upstreamNode.output }.sum()
+        val upstreamOutput = upstream.sumOf { it.weight * it.upstreamNode.output }
         // 使用激活函数计算输出
         output = activator(upstreamOutput)
     }

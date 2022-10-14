@@ -1,13 +1,16 @@
-package com.uqaigth.ml.core.layer
+package com.uqaigth.network.core.layer
 
-import com.uqaigth.ml.core.Layer
-import com.uqaigth.ml.core.Node
-import com.uqaigth.ml.core.node.ConstNode
-import com.uqaigth.ml.core.node.HiddenLayerNode
+import com.uqaigth.network.core.Layer
+import com.uqaigth.network.core.Node
+import com.uqaigth.network.core.node.ConstNode
+import com.uqaigth.network.core.node.HiddenLayerNode
 
 class HiddenLayer(
+    // 层在网络中的 index
     override val layerIndex: Int,
+    // 节点个数
     override val nodeCount: Int,
+    // 激活函数
     activator: (Double) -> Double
 ) : Layer {
     override val layerType: String = "hidden"

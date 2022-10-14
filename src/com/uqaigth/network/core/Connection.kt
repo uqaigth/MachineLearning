@@ -1,13 +1,16 @@
-package com.uqaigth.ml.core
+package com.uqaigth.network.core
 
 import kotlin.random.Random
 
 
-class Connection(val upstreamNode: Node, val downstreamNode: Node) {
+class Connection(
+    // 上层节点
+    val upstreamNode: Node, val downstreamNode: Node) {
     private val random = Random(System.currentTimeMillis())
     var weight: Double
     var gradient = 0.0
 
+    //
     init {
         this.weight = random.nextDouble(-0.01, 0.01)
     }

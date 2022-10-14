@@ -12,7 +12,7 @@ fun ReLU(x: Double): Double {
 }
 
 fun LeakyReLU(x: Double): Double {
-    return if (x < 0) 0.1 * x else x
+    return if (x < 0) 0.05 * x else x
 }
 
 fun sigmoid(x: Double): Double {

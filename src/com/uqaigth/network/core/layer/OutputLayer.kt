@@ -1,11 +1,13 @@
-package com.uqaigth.ml.core.layer
+package com.uqaigth.network.core.layer
 
-import com.uqaigth.ml.core.Layer
-import com.uqaigth.ml.core.Node
-import com.uqaigth.ml.core.node.OutputLayerNode
+import com.uqaigth.network.core.Layer
+import com.uqaigth.network.core.Node
+import com.uqaigth.network.core.node.OutputLayerNode
 
 class OutputLayer(
+    // 层在网络中的 index
     override val layerIndex: Int,
+    // 节点个数
     override val nodeCount: Int,
     activator: (Double) -> Double
 ) : Layer {

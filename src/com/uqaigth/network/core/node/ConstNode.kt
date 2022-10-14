@@ -1,8 +1,8 @@
-package com.uqaigth.ml.core.node
+package com.uqaigth.network.core.node
 
-import com.uqaigth.ml.core.Connection
-import com.uqaigth.ml.core.Node
-import com.uqaigth.ml.exception.NoSuchStreamConnection
+import com.uqaigth.network.core.Connection
+import com.uqaigth.network.core.Node
+import com.uqaigth.network.exception.NoSuchStreamConnection
 
 class ConstNode(override val layerIndex: Int, override val nodeIndex: Int) : Node {
     override var output = 1.0
@@ -24,7 +24,7 @@ class ConstNode(override val layerIndex: Int, override val nodeIndex: Int) : Nod
     }
 
     override fun calcDelta(label: Double) {
-        val downstreamDelta = downstream.map { it.weight * it.downstreamNode.delta }.sum()
+        val downstreamDelta = downstream.sumOf { it.weight * it.downstreamNode.delta }
         delta = output * (1 - output) * downstreamDelta
     }
 }

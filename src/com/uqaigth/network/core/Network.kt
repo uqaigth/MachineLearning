@@ -1,7 +1,7 @@
-package com.uqaigth.ml.core
+package com.uqaigth.network.core
 
-import com.uqaigth.ml.core.layer.InputLayer
-import com.uqaigth.ml.core.node.ConstNode
+import com.uqaigth.network.core.layer.InputLayer
+import com.uqaigth.network.core.node.ConstNode
 
 class Network(private val layers: List<Layer>) {
 
@@ -9,10 +9,13 @@ class Network(private val layers: List<Layer>) {
 
     private val outputNodes: List<Node>
 
+    /**
+     * 初始化网络
+     */
     init {
-        for (i in 0..layers.size - 2) {
-            for (upStreamNode in layers[i].nodes) {
-                for (downStreamNode in layers[i + 1].nodes) {
+        for (i in 0..layers.size - 2) { // 逐层处理
+            for (upStreamNode in layers[i].nodes) { // 每个节点进行处理
+                for (downStreamNode in layers[i + 1].nodes) { //
                     if (downStreamNode !is ConstNode) {
                         val conn = Connection(upStreamNode, downStreamNode)
                         conn.upstreamNode.addDownstreamConnection(conn)
@@ -57,7 +60,9 @@ class Network(private val layers: List<Layer>) {
      * 基于样本预测结果
      */
     fun predict(sample: List<Double>): List<Double> {
+        // 输入层设置样本
         (layers.first() as InputLayer).setSample(sample)
+        // 逐层计算输出
         for (i in 1 until layers.size) {
             layers[i].calcOutput()
         }

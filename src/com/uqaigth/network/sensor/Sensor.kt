@@ -1,4 +1,4 @@
-package com.uqaigth.sensor
+package com.uqaigth.network.sensor
 
 /**
  * 神经元
@@ -21,7 +21,7 @@ class Sensor(
 
 
     fun predict(inputVec: List<Double>): Double {
-        return activator(inputVec.zip(weights).map { it.first * it.second }.sum() + bias)
+        return activator(inputVec.zip(weights).sumOf { it.first * it.second } + bias)
     }
 
     fun train(inputVecArray: Array<DoubleArray>, labels: DoubleArray, iteration: Int, rate: Double) {
